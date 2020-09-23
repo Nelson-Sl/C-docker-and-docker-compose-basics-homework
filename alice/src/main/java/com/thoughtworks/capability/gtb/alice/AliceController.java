@@ -12,7 +12,8 @@ public class AliceController {
 
     @GetMapping("/hello")
     public String hello() {
-        String bobResourcesUrl = "http://localhost:8081/bob/hello";
+        //备注：Windows下不可以直接映射，只能对照docker-machine ip设计
+        String bobResourcesUrl = "http://192.168.99.100:8081/bob/hello";
         return restTemplate.getForObject(bobResourcesUrl, String.class);
     }
 }
